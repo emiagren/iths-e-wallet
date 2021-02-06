@@ -2,7 +2,6 @@
     <div>
         <h1>ADD A NEW<br>BANK CARD</h1>
         <p>NEW CARD</p>
-        <CardTemp />
         <CardForm />
         <button>
             <router-link id="cancel" to="/">CANCEL</router-link>
@@ -11,14 +10,12 @@
 </template>
 
 <script>
-import CardTemp from '../components/CardTemp.vue'
 import CardForm from '../components/CardForm.vue'
 
 export default {
 
   components: { 
       
-      CardTemp,
       CardForm 
       
       },

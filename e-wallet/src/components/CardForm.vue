@@ -1,6 +1,8 @@
 <template>
   <div>
-    <CardTemp :newCard="newCard"/>
+
+    <CardTemp v-bind="newCard"/>
+
     <form @submit.prevent="addCard">
         <label>CARD NUMBER</label><br>
         <input type="text" v-model="cardNum" placeholder="XXXX XXXX XXXX XXXX" 
@@ -8,7 +10,7 @@
         <label>CARDHOLDER NAME</label><br>
         <input type="text" v-model="cardHold" placeholder="FIRST NAME  LAST NAME"><br>
         <label>VALID THRU</label><br>
-        <select class="valid" v-model="valMonth" aria-placeholder="MM">
+        <select class="valid" v-model="valMonth">
             <option value="01">01</option>
             <option value="02">02</option>
             <option value="03">03</option>
@@ -64,10 +66,10 @@ export default {
               
             cardId: '',  
             cardHold: '',
-            cardVend: '',
+            cardVend: 'bitcoin-inc',
             cardNum: '',
-            valMonth: '',
-            valYear: ''
+            valMonth: 'MM',
+            valYear: 'YY'
             }
         }
     },

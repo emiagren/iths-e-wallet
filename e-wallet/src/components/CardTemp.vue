@@ -131,9 +131,11 @@ export default {
     grid-column: 1/3;
     grid-row: 3;
     flex-direction: column;
+    margin-left: 12px;
 }
 
 .card-holder p {
+    text-transform: uppercase;
     text-align: left;
     margin: 2px;
 }
