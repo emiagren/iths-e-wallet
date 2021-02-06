@@ -1,15 +1,27 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-      
-    </div>
+    <WalletTop />
+
     <router-view />
   </div>
 </template>
 
+<script>
+import WalletTop from './components/WalletTop'
+export default {
+  components: {
+    WalletTop
+  }
+}
+</script>
+
 <style>
+
+* {
+  box-sizing: border-box;
+  margin: auto;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -30,4 +42,5 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
 </style>
