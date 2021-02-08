@@ -4,12 +4,15 @@
     <CardTemp v-bind="newCard"/>
 
     <form @submit.prevent="addCard">
+        
         <label>CARD NUMBER</label><br>
         <input type="text" v-model="cardNum" placeholder="XXXX XXXX XXXX XXXX" 
         minlength="16" maxlength="16"><br>
+
         <label>CARDHOLDER NAME</label><br>
         <input type="text" v-model="cardHold" placeholder="FIRST NAME  LAST NAME"><br>
         <label>VALID THRU</label><br>
+
         <select class="valid" v-model="valMonth">
             <option value="01">01</option>
             <option value="02">02</option>
@@ -24,6 +27,7 @@
             <option value="11">11</option>
             <option value="12">12</option>
         </select>
+
         <select class="valid" v-model="valYear">
             <option value="21">21</option>
             <option value="22">22</option>
@@ -31,9 +35,11 @@
             <option value="24">24</option>
             <option value="25">25</option>
         </select><br>
+
         <label>CCV</label><br>
         <input class="ccv" type="text" placeholder="XXX" 
         minlength="3" maxlength="3"><br>
+
         <label>VENDOR</label><br>
         <select class="vendor" v-model="cardVend">
             <option value="bitcoin-inc">Bitcoin Inc</option>
@@ -41,7 +47,9 @@
             <option value="evil-corp">Evil Corp</option>
             <option value="ninja-bank">Ninja Bank</option>
         </select>
+
         <button>ADD CARD</button>
+
     </form>
   </div>
 </template>
@@ -112,7 +120,8 @@ input, .vendor {
     width: 18rem;
     margin-bottom: 0.5rem;
     padding: 0.5rem;
-    border: 1px solid;
+    border: 1px;
+    border-color: #8888;
     border-radius: 7px;
     font-size: 0.6em;
     text-transform: uppercase;
@@ -124,6 +133,7 @@ input, .vendor {
     margin-bottom: 0.5rem;
     padding: 0.5rem;
     border-radius: 7px;
+    border-color: #8888;
     font-size: 0.6em;
     text-transform: uppercase;
 }
@@ -132,9 +142,10 @@ button {
   width: 18rem;
   height: 3rem;
   margin-top: 1rem;
-  border: 1px solid;
-  border-radius: 7px;
-  background-color: white;
+  border-radius: 14px;
+  border-color: #8888;
+  box-shadow: -3px -3px 5px rgba(255, 255, 255, 0.8),
+              3px 3px 5px rgba(0, 0, 0, 0.2);
   font-weight: bold;
 }
 

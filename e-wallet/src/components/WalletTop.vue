@@ -1,7 +1,7 @@
 <template>
   <div>
       <nav>
-          <router-link id="home" to="/">E-WALLET</router-link>
+          <router-link id="home" to="/">e-wallet</router-link>
       </nav>
   </div>
 </template>
@@ -21,7 +21,8 @@ nav {
 }
 
 #home {
-    font-size: 1.5em;
+    font-style: 'Roboto';
+    font-size: 1.8em;
     font-weight: bold;
     text-decoration: none;
 }

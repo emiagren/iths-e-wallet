@@ -54,9 +54,10 @@ export default {
   height: 1.3rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  border: 0.5px solid;
-  border-radius: 5px;
-  background-color: white;
+  border-radius: 7px;
+  border-color: #8888;
+  box-shadow: -3px -3px 5px rgba(255, 255, 255, 0.8),
+              3px 3px 5px rgba(0, 0, 0, 0.2);
   font-size: 9px;
   font-weight: bold;
 }
@@ -70,9 +71,10 @@ export default {
   height: 3rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  border: 1px solid;
-  border-radius: 7px;
-  background-color: white;
+  box-shadow: -3px -3px 5px rgba(255, 255, 255, 0.8),
+              3px 3px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 14px;
+  border-color: #8888;
   font-weight: bold;
 }
 
