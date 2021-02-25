@@ -45,7 +45,7 @@ export default {
 .card {
     height: 12rem;
     width: 18rem;
-    margin-top: -9em;
+    margin-top: -9.5rem;
     position: sticky;
     z-index: 1;
     }  

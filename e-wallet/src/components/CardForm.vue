@@ -1,19 +1,19 @@
 <template>
   <div>
 
-    <CardTemp v-bind="newCard"/>
+    <CardTemp v-bind="newCard" />
 
     <form @submit.prevent="addCard">
         
         <label>CARD NUMBER</label><br>
-        <input type="text" v-model="cardNum" placeholder="XXXX XXXX XXXX XXXX" 
+        <input type="text" v-model="newCard.number" placeholder="XXXX XXXX XXXX XXXX" 
         minlength="16" maxlength="16"><br>
 
         <label>CARDHOLDER NAME</label><br>
-        <input type="text" v-model="cardHold" placeholder="FIRST NAME  LAST NAME"><br>
+        <input type="text" v-model="newCard.holder" placeholder="FIRST NAME  LAST NAME"><br>
         <label>VALID THRU</label><br>
 
-        <select class="valid" v-model="valMonth">
+        <select class="valid" v-model="newCard.validMonth">
             <option value="01">01</option>
             <option value="02">02</option>
             <option value="03">03</option>
@@ -28,7 +28,7 @@
             <option value="12">12</option>
         </select>
 
-        <select class="valid" v-model="valYear">
+        <select class="valid" v-model="newCard.validYear">
             <option value="21">21</option>
             <option value="22">22</option>
             <option value="23">23</option>
@@ -41,7 +41,7 @@
         minlength="3" maxlength="3"><br>
 
         <label>VENDOR</label><br>
-        <select class="vendor" v-model="cardVend">
+        <select class="vendor" v-model="newCard.vendor">
             <option value="bitcoin-inc">Bitcoin Inc</option>
             <option value="blockchain-inc">Block Chain Inc</option>
             <option value="evil-corp">Evil Corp</option>
@@ -65,19 +65,17 @@ export default {
     components: {
         CardTemp
     },
-    
 
     data() {
         return {
 
             newCard: {
-              
-            cardId: '',  
-            cardHold: '',
-            cardVend: 'bitcoin-inc',
-            cardNum: '',
-            valMonth: 'MM',
-            valYear: 'YY'
+                id: this.cardId = Date.now().toString(),
+                holder: "",
+                vendor: "",
+                number: "",
+                validMonth: "",
+                validYear: ""
             }
         }
     },
@@ -86,16 +84,8 @@ export default {
         
         addCard() {
 
-            const newCard = {
-                id: this.cardId = Date.now().toString(),
-                holder: this.cardHold,
-                vendor: this.cardVend,
-                number: this.cardNum,
-                validMonth: this.valMonth,
-                validYear: this.valYear
-            }
-
-                this.$root.$data.cards.push(newCard);
+                this.$root.$data.cards.push(this.newCard);
+                console.log(this.newCard)
                 this.$router.push("/")
         }
 

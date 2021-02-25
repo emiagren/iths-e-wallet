@@ -3,14 +3,14 @@
         <div class="card-template" :class="cardVendor">
             
             <section class="card-vendor-logo">
-                <img v-if="cardVendor === 'bitcoin-inc'" src="../assets/vendor-bitcoin.svg">
-                <img v-else-if="cardVendor === 'blockchain-inc'" src="../assets/vendor-blockchain.svg">
-                <img v-else-if="cardVendor === 'evil-corp'" src="../assets/vendor-evil.svg">
-                <img v-else-if="cardVendor === 'ninja-bank'" src="../assets/vendor-ninja.svg">
+                <img v-if="vendor === 'bitcoin-inc'" src="../assets/vendor-bitcoin.svg">
+                <img v-else-if="vendor === 'blockchain-inc'" src="../assets/vendor-blockchain.svg">
+                <img v-else-if="vendor === 'evil-corp'" src="../assets/vendor-evil.svg">
+                <img v-else-if="vendor === 'ninja-bank'" src="../assets/vendor-ninja.svg">
             </section>
 
             <section class="card-chip">
-                <img v-if="cardVendor === 'bitcoin-inc'" src="../assets/chip-dark.svg" alt="chip-dark">
+                <img v-if="vendor === 'bitcoin-inc'" src="../assets/chip-dark.svg" alt="chip-dark">
                 <img v-else src="../assets/chip-light.svg" alt="chip-light">
             </section>
             
@@ -24,13 +24,7 @@
             <section class="card-expire">   
                 <p class="valid-thru">VALID THRU</p>
                 <p class="card-valid">{{validMonth}}/{{validYear}}</p>
-            </section>     
-            <!-- <section class="card-vendor">
-                <div v-if="cardVendor === 'bitcoin-inc'" class="vendor-bitcoin"><img src="../assets/vendor-bitcoin.svg"></div>
-                <div v-else-if="cardVendor === 'blockchain-inc'" class="vendor-blockchain"><img src="../assets/vendor-blockchain.svg"></div>
-                <div v-else-if="cardVendor === 'evil-corp'" class="vendor-evil"><img src="../assets/vendor-evil.svg"></div>
-                <div v-else-if ="cardVendor === 'ninja-bank'" class="vendor-ninja"><img src="../assets/vendor-ninja.svg"></div>
-            </section> -->
+            </section> 
         </div>
     </div>
 </template>
@@ -74,7 +68,7 @@ export default {
         },
     
 
-        computed: {
+    computed: {
 
         cardNumSpacing: function() {
             return this.number.substring(0,4) +" "+
@@ -83,11 +77,26 @@ export default {
             this.number.substring(12,16)
         },
 
+    
         cardVendor: function() {
-           return this.vendor
-        }
-      }
+            if (this.vendor === "bitcoin-inc") {
+                return "vendor-bitcoin"
+            }
+            else if (this.vendor === "blockchain-inc") {
+                return "vendor-blockchain"
+            }
+            else if (this.vendor === "evil-corp") {
+                return "vendor-evil"
+            }
+            else if (this.vendor === "ninja-bank") {
+                return "vendor-ninja"
+            }
+            else {
+                return "vendor-default"
+            }
+        }    
     }
+}
     
 </script>
 
@@ -99,7 +108,6 @@ export default {
     grid-template-rows: 1fr 1fr 1fr;
     height: 12rem;
     width: 18rem;
-    background-color: lightgray;
     box-shadow: 0 2px 6px 2px #888888;;
     border-radius: 7px;
     margin-bottom: 1rem;
@@ -162,8 +170,14 @@ p {
     text-shadow: 1px 2px 2px #6b6b6b;
 }
 
+.vendor-default {
+    background-color: lightgray;
+}
+
 .vendor-bitcoin {
     background-color: rgb(255, 217, 0);
+    color: black;
+    text-shadow: 1px 2px 2px #6b6b6b;
 }
 
 .vendor-blockchain {
